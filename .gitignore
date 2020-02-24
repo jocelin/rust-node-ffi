@@ -1,0 +1,8 @@
+node_modules
+
+# node-gyp auto-generated file
+build
+
+# rust build and lock file (do not commit lock file for lib)
+**/target
+rust/Cargo.lock

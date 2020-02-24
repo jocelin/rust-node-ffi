@@ -1,0 +1,17 @@
+{
+  "name": "rust-node-ffi",
+  "version": "0.0.0-demo",
+  "description": "a nodejs project that calls rust function with ffi",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "cd rust && cargo build --release",
+    "clean": "cd rust && cargo clean",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jocelynlin",
+  "license": "MIT",
+  "dependencies": {
+    "ffi": "git+https://github.com/lxe/node-ffi.git#node-12"
+  }
+}

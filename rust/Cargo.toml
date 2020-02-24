@@ -1,0 +1,9 @@
+[package]
+name = "fib"
+version = "0.1.0"
+authors = ["Jocelyn Lin <jocelin.cs@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "fib"
+crate-type = ["dylib"]
