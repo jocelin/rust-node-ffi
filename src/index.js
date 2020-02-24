@@ -1,13 +1,13 @@
-const ffi = require("ffi");
-const path = require("path");
+const ffi = require('ffi');
+const path = require('path');
 
-const libDir = "../rust/target/release";
+const libDir = '../rust/target/release';
 const libPath = `${libDir}/fib`;
 const libPathFull = path.join(__dirname, libPath);
-console.debug({ libDir, libPath, libPathFull });
+// console.debug({ libDir, libPath, libPathFull });
 
 const rustLib = ffi.Library(libPathFull, {
-  fibonacci: ["int", ["int"]]
+  fibonacci: ['uint', ['int']],
 });
 
 function fibonacci(n) {
@@ -17,12 +17,23 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-console.time("rust");
-var rustFibonacci = rustLib.fibonacci(30);
-console.timeEnd("rust");
+const [, , rawInput = 30] = process.argv;
+const input = parseInt(rawInput);
 
-console.time("node");
-var nodeFibonacci = fibonacci(30);
-console.timeEnd("node");
+console.log(`Calculating fibonacci, input: ${input}\n`);
 
-console.log({ rustFibonacci, nodeFibonacci });
+console.time('rust');
+var rustFib = rustLib.fibonacci(input);
+console.timeEnd('rust');
+
+console.time('node');
+var nodeFib = fibonacci(input);
+console.timeEnd('node');
+
+const result = {
+  Fibonacci: {
+    rust: rustFib.toLocaleString(),
+    node: nodeFib.toLocaleString(),
+  },
+};
+console.log(JSON.stringify(result, null, 2));

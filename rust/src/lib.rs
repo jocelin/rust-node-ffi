@@ -1,5 +1,5 @@
 #[no_mangle]
-pub extern "C" fn fibonacci(n: i32) -> i32 {
+pub extern "C" fn fibonacci(n: i32) -> u32 {
     return match n {
         0 => 0,
         1 => 1,

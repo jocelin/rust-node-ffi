@@ -3,6 +3,10 @@
 ## Description
 This project explores `node-ffi` (Foreign Function Interface) that allows a `npm` project to call functions written in `Rust` for expensive calculations.
 
+This project calculates fibonacci number in both `rust` and `node` and outputs the time it takes to complete the computation and the results from both functions. 
+
+The program takes an optional input (default to 30 if not provided) from the command line.
+
 ## Tools / Prerequisites
 1. This project runs on `Windows 10 OS`
 2. Make sure the following tools are installed
@@ -18,6 +22,8 @@ This project explores `node-ffi` (Foreign Function Interface) that allows a `npm
     -  `npm run build`
 3. run the project
     - `npm start`
+    - use custom input: `npm start 20`
+        - **Integer Overflow**: Current implementation in `rust` version uses `u32` for both input and output data type, which means the calculated result could go overflow with `input >= 48`.
 - *Optional* commands
     - clean up rust build: `npm run clean`
 
@@ -33,3 +39,7 @@ This project explores `node-ffi` (Foreign Function Interface) that allows a `npm
       - [Microsoft Windows Dev Center](https://docs.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
       - [Rust Conditional Compilation](https://doc.rust-lang.org/reference/conditional-compilation.html#target_arch)
       - [Rust Installation](https://forge.rust-lang.org/infra/other-installation-methods.html)
+
+## Other references
+- [node-ffi tutorial](https://github.com/node-ffi/node-ffi/wiki/Node-FFI-Tutorial)
+- [rust data types & integer-overflow](https://doc.rust-lang.org/book/ch03-02-data-types.html#integer-overflow)
