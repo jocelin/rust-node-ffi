@@ -15,6 +15,9 @@
     "ffi": "git+https://github.com/lxe/node-ffi.git#node-12"
   },
   "keywords": [
-    "rust", "cargo", "ffi", "node-ffi"
+    "rust",
+    "cargo",
+    "ffi",
+    "node-ffi"
   ]
 }
