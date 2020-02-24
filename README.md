@@ -10,7 +10,7 @@ The program takes an optional input (default to 30 if not provided) from the com
 ## Tools / Prerequisites
 1. This project runs on `Windows 10 OS`
 2. Make sure the following tools are installed
-    - nodejs v12.16.1
+    - nodejs v12.16.1 (x64)
     - npm 6.13.4
     - cargo 1.41.0 (626f0f40e 2019-12-03)
 
@@ -29,7 +29,7 @@ The program takes an optional input (default to 30 if not provided) from the com
 
 ## Troubleshoot build errors:
 - `Dynamic Linking Error: Win32 error 193`
-  - This error occurs if the `rust` compiler builds 32-bit of the library instead of 64-bit. You will need to update `rustc` `toolchain` to support building 64-bit lib. Run the following 2 commands to install and use `x86_64-pc-windows-gnu` as the `target_arg`:
+  - This error occurs if the `rust` compiler builds 32-bit of the library instead of 64-bit where the node was installed as x64. You will need to update `rustc` `toolchain` to support building 64-bit lib. Run the following 2 commands to install and use `x86_64-pc-windows-gnu` as the `target_arg`:
       ```
       rustup toolchain install stable-x86_64-pc-windows-gnu
       
